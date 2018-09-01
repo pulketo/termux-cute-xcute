@@ -4,7 +4,7 @@
 			This is a better launcher search by keywords autocompletable, but it fully depends/relies on Termux-Launcher (https://github.com/amsitlab/termuxlauncher) 
 			which generates a file on: 			/sdcard/termuxlauncher/.apps-launcher, and it will only work with this file.
 		*/
-		DEFINE("VERSION", "v0.90");
+		DEFINE("VERSION", "v0.93");
 		DEFINE("MAN", 
 	"
 	MANUAL PAGES
@@ -105,6 +105,13 @@
 				$o = array_shift($o);
 				$o['status'] = "launched";
 				fwrite(STDERR, "Launching 1st match...".PHP_EOL);
+		  	$cmd = $o['cmd']." 2>&1";
+			  // echo "cmd:$cmd";			
+		  	$response = explode(PHP_EOL, trim(`$cmd`));
+	  		// $arrX = atrim($arrX);
+  			foreach($response as $k=>$v){
+				  $o['status'.$k] = $v;
+			  }
 				echo json_encode($o, JSON_PRETTY_PRINT).PHP_EOL;
 			}else{
 				echo json_encode($o, JSON_PRETTY_PRINT).PHP_EOL;
