@@ -1,0 +1,15 @@
+{
+    "name": "pulketo/termux-cute-execute",
+    "description": "Launch your android programs from termux command line using keywords to search",
+    "type": "project",
+    "require": {
+        "nategood/commando": "^0.3.0"
+    },
+    "license": "gplv3",
+    "authors": [
+        {
+            "name": "pulketo",
+            "email": "pulketo@gmail.com"
+        }
+    ]
+}
