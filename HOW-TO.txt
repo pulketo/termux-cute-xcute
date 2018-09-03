@@ -1,0 +1,15 @@
+you should have already do these steps:
+installed Termux (from play store)
+installed Termux-Launcher (from github: https://github.com/amsitlab/termuxlauncher)
+
+Started Termux app
+  at the prompt, install php: $ pkg install php
+  git clone https://github.com/amsitlab/termuxlauncher.git
+  cd termuxlauncher
+  chmod +x xc.phar  
+  ln -s $(pwd)/xc.phar ~/../usr/bin/x
+done...so...
+  x whats
+  x face -f
+ 
+  

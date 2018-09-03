@@ -1,0 +1,5 @@
+0.94 - 2018-09-03
+Added
+
+		- First release
+
