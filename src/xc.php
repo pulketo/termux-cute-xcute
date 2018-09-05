@@ -9,7 +9,7 @@
 	"
 	MANUAL PAGES
 	");
-	require __DIR__ ."/vendor/autoload.php";
+	require __DIR__ ."/../vendor/autoload.php";
 
 	function fixEncoding($i){
 		$t = array(
