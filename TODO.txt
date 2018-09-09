@@ -1,0 +1,1 @@
+next version, add --refresh or -r to reload new apps list. 
