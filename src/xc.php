@@ -181,18 +181,19 @@
 		echo VERSION.PHP_EOL;
 		exit;
 	}
+
+	$cc = new termuxCuteCall();
+
 	
 	if ($opts['update']){
 		$cc -> setFirstMatch();
-		$cc ->searchFor("termuxlauncher");
+		$cc -> searchFor("termuxlauncher");
 		$cc -> doSearch();
 		$cc -> getResponse();
 		echo "termuxlauncher launched, newly installed show be searchable, deleted won't appear anymore ".PHP_EOL;
 		echo "you should execute ";
 		exit;
 	}
-
-	$cc = new termuxCuteCall();
 	
 	for ($i=0;$i<=MAXARGS;$i++){
 		if ($opts[$i]=="")
