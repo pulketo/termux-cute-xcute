@@ -14,9 +14,9 @@
 	");
 	require __DIR__ ."/../vendor/autoload.php";
 
-	class termuxCuteCall {
+	class termuxCuteXCute {
 		// switches default
-		private $debug = false;
+		private $debug = true;
 		private $f = false; 		
 		////////
 	    public $appList;
@@ -37,7 +37,9 @@
 				$txt[]=array("name"=>$appname, "cmd"=>$appcmd);
 			}
 			$this->appList = $txt;
+			// print_r($this->appList);exit;
 			$this->status = "OK";
+//			print_r($txt);
 			return true;
 		}
 
@@ -84,7 +86,7 @@
 
 	public function searchFor($what){
 		$this->searchKeywords[] = $what;
-		$this->showDebug(print_r($this->searchKeywords,true));
+		$this->showDebug("searchFor searchKeywords:".print_r($this->searchKeywords, true));
 	}
 
 	public function setResponse($i){
@@ -104,11 +106,12 @@
 			$this->showList(); // default 
 			exit;
 		}
-		// if search keywords > 0		
+		// if search keywords > 0
+		$o = $this->appList;
 		for($i=0;$i<sizeOf($this->searchKeywords);$i++){
-			$o = $this->arrSearch($this->appList, $this->searchKeywords[$i]);
+			$o = $this->arrSearch($o, $this->searchKeywords[$i]);
 		}
-		$this->showDebug(__FUNCTION__.":".print_r($o, true));
+		$this->showDebug("doSearch:".print_r($o, true));
 		switch(sizeOf($o)){
 			case 0:
 				fwrite(STDERR, "No matches, try less keywords or run without arguments to show full list".PHP_EOL);
@@ -130,7 +133,7 @@
 			default:
 				// more than one match
 				// verify -f
-				if ($this->firstMatch){
+				if (@$this->firstMatch){
 					$o = array_shift($o);
 					$o['status'] = "launched";
 					fwrite(STDERR, "Launching 1st match...".PHP_EOL);
@@ -182,7 +185,7 @@
 		exit;
 	}
 
-	$cc = new termuxCuteCall();
+	$cc = new termuxCuteXCute();
 
 	
 	if ($opts['update']){
