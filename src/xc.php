@@ -16,7 +16,7 @@
 
 	class termuxCuteXCute {
 		// switches default
-		private $debug = true;
+		private $debug = false;
 		private $f = false; 		
 		////////
 	    public $appList;
